@@ -1,0 +1,15 @@
+{
+  "name": "zxingcpp-read-barcodes",
+  "version": "1.0.0",
+  "description": "zxingcpp-read-barcodes",
+  "scripts": {
+    "build": "node-gyp configure && node-gyp build",
+    "cmake": "cmake --build zxing-cpp.release --config Release -j8"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^6.0.0"
+  }
+}
