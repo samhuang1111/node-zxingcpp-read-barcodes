@@ -1,3 +1,54 @@
+## 使用
+
+`Image.data` - 為 RGBA 方式排列的圖像資料，array 總長度為 width * height * 4
+
+參考： https://developer.mozilla.org/en-US/docs/Web/API/ImageData/data
+
+`Image.hints` - 用於限縮搜尋條碼的範圍，字串 `"[QRCode]"` 代表指搜尋QRCode，`"[QRCode,PDF417]"` 代表搜尋 QRCode，PDF417 兩種條碼，或是不指定此參數，代表搜尋所有可能的條碼，這樣會花較多時間。
+
+`Result` - 圖像中所有條碼的所有內容
+
+```js
+const BarCodes = require("bindings")("BarCodes.node");
+
+const Image = {
+  data:[0,0,0,255,0,0,0,255...], // RGBA Data
+  width:1280,
+  height:720,
+  hints:"[QRCode]" 
+}
+
+const Results = BarCodes.Read(Image)
+const Result = Results[0];
+/* BarCode Data
+{
+    "text": "1",
+    "format": "QRCode",
+    "contentType": "Text",
+    "position": [
+        {
+            "x": 205,
+            "y": 256
+        },
+        {
+            "x": 252,
+            "y": 175
+        },
+        {
+            "x": 334,
+            "y": 224
+        },
+        {
+            "x": 285,
+            "y": 304
+        }
+    ],
+    "orientation": -59,
+    "mirrored": false
+}
+*/
+```
+
 ## 編譯 C++ Addon
 
 準備 node-gyp 用來編譯 Addon
@@ -36,18 +87,4 @@ cmake --build zxing-cpp.release --config release -j8
 
 zxing-cpp.release/core/Release 底下會有 ZXing.lib，編譯 Addon 需要用到。
 
-## 使用 Addon
 
-```js
-const BarCodes = require("bindings")("BarCodes.node");
-
-const Image = {
-  data:[0,0,0,255,0,0,0,255...], // RGBA Format Data
-  width:1280,
-  height:720,
-  hints:"[QRCode]" 
-}
-
-const Results = BarCodes.Read(Image)
-
-```
