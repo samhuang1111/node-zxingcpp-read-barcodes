@@ -4,9 +4,9 @@
 
 參考： https://developer.mozilla.org/en-US/docs/Web/API/ImageData/data
 
-`Image.hints` - 用於限縮搜尋條碼的範圍，字串 `"[QRCode]"` 代表指搜尋QRCode，`"[QRCode,PDF417]"` 代表搜尋 QRCode，PDF417 兩種條碼，或是不指定此參數，代表搜尋所有可能的條碼，這樣會花較多時間。
+`Image.hints` - 用於限縮搜尋條碼的範圍，字串 `"[QRCode]"` 代表只搜尋QRCode，`"[QRCode,PDF417]"` 代表搜尋 QRCode，PDF417 兩種條碼，或是不指定此參數，代表搜尋所有可能的條碼，這樣會花較多時間。
 
-`Result` - 圖像中所有條碼的所有內容
+`Results` - 圖像中所有條碼的資訊
 
 ```js
 const BarCodes = require("bindings")("BarCodes.node");

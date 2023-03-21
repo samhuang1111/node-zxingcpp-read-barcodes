@@ -1,4 +1,3 @@
-build/*
-zxing-cpp/*
-zxing-cpp.release/*
-node_modules/*
+zxing-cpp/
+zxing-cpp.release/
+node_modules/

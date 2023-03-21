@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "zxingcpp-read-barcodes",
   "scripts": {
-    "build": "node-gyp configure && node-gyp build",
-    "cmake": "cmake --build zxing-cpp.release --config Release -j8"
+    "build": "node-gyp configure && node-gyp build"
   },
   "author": "",
   "license": "ISC",
