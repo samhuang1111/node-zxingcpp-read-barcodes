@@ -73,9 +73,9 @@ npm run build //node-gyp configure && node-gyp build
 
 ## 編譯 ZXing-cpp
 
-ZXing-cpp 的文件
+下載整個專案然後移動到此專案，clone ZXing-cpp，僅行編譯
 
-https://github.com/zxing-cpp/zxing-cpp#build-instructions
+ZXing-cpp 的文件 https://github.com/zxing-cpp/zxing-cpp#build-instructions
 
 ```
 git clone https://github.com/zxing-cpp/zxing-cpp.git --single-branch --depth 1
