@@ -36,14 +36,23 @@ Napi::Object readBarcodeFromImageView(Napi::Env &env, ZXing::ImageView iv, bool 
       }
 
       Napi::Object position = Napi::Object::New(env);
-      position.Set("topLeft", ZxingResult.position().topLeft().x);
-      position.Set("topLeft", ZxingResult.position().topLeft().y);
-      position.Set("topRight", ZxingResult.position().topRight().x);
-      position.Set("topRight", ZxingResult.position().topRight().y);
-      position.Set("bottomLeft", ZxingResult.position().bottomLeft().x);
-      position.Set("bottomLeft", ZxingResult.position().bottomLeft().y);
-      position.Set("bottomRight", ZxingResult.position().bottomRight().x);
-      position.Set("bottomRight", ZxingResult.position().bottomRight().y);
+      Napi::Object topLeft = Napi::Object::New(env);
+      Napi::Object topRight = Napi::Object::New(env);
+      Napi::Object bottomLeft = Napi::Object::New(env);
+      Napi::Object bottomRight = Napi::Object::New(env);
+      topLeft.Set("x", ZxingResult.position().topLeft().x);
+      topLeft.Set("y", ZxingResult.position().topLeft().y);
+      topRight.Set("x", ZxingResult.position().topRight().x);
+      topRight.Set("y", ZxingResult.position().topRight().y);
+      bottomLeft.Set("x", ZxingResult.position().bottomLeft().x);
+      bottomLeft.Set("y", ZxingResult.position().bottomLeft().y);
+      bottomRight.Set("x", ZxingResult.position().bottomRight().x);
+      bottomRight.Set("y", ZxingResult.position().bottomRight().y);
+      position.Set("topLeft", topLeft);
+      position.Set("topRight", topRight);
+      position.Set("bottomLeft", bottomLeft);
+      position.Set("bottomRight", bottomRight);
+
 
       // array element
       Napi::Object jsResult = Napi::Object::New(env);
